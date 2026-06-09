@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T-Shirt Orders — CSW Family Reunion 2027</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .color-swatch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.85rem;
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: border-color 0.15s, background 0.15s;
+      user-select: none;
+    }
+    .color-swatch input { display: none; }
+    .color-swatch:has(input:checked) {
+      border-color: var(--color-primary);
+      background: var(--color-primary-light);
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+    .color-swatch:hover { border-color: var(--color-primary-dark); }
+    .swatch-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.12);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .style-option { display: none; }
+    .style-label {
+      display: block;
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: border-color 0.15s, background 0.15s;
+      margin-bottom: 0.5rem;
+    }
+    .style-label strong { display: block; margin-bottom: 0.2rem; }
+    .style-option:checked + .style-label {
+      border-color: var(--color-primary);
+      background: var(--color-primary-light);
+    }
+    .style-label:hover { border-color: var(--color-primary-dark); }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" style="display:flex;align-items:center;gap:0.6rem;">
+        <div class="logo-placeholder" title="Logo coming soon">CSW<br>LOGO</div>
+        CSW Reunion
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="family-info.html">Family Info</a></li>
+        <li><a href="travel.html">Travel & Lodging</a></li>
+        <li><a href="events.html">Events Sign-Up</a></li>
+        <li><a href="tshirts.html">T-Shirts</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-hero">
+      <h1>T-Shirt Orders</h1>
+      <p>Order your official CSW Family Reunion 2027 t-shirt. No payment needed now — we'll collect details at the reunion.</p>
+    </div>
+
+    <div class="container">
+
+      <div class="highlight-box">
+        <strong>Order deadline: June 1, 2027.</strong> We need final counts before ordering to ensure everyone gets their size and color. Shirts will be distributed at the Friday Welcome Dinner.
+      </div>
+
+      <div class="card-grid mt-3 mb-2">
+        <div class="card">
+          <h3>💰 Pricing (Est.)</h3>
+          <table class="info-table">
+            <thead><tr><th>Size</th><th>Price</th></tr></thead>
+            <tbody>
+              <tr><td>S – XL</td><td><span class="price-badge">$18</span></td></tr>
+              <tr><td>2XL – 3XL</td><td><span class="price-badge">$21</span></td></tr>
+            </tbody>
+          </table>
+          <p class="mt-2" style="font-size:0.8rem; color:var(--color-text-muted);">Final pricing will be confirmed once the design is finalized. Payment collected at the reunion.</p>
+        </div>
+        <div class="card">
+          <h3>🎨 Design</h3>
+          <p style="font-size:0.9rem;">The official t-shirt design is being finalized. It will feature the CSW Family Reunion 2027 logo, reunion dates, and a family-themed graphic.</p>
+          <p class="mt-2" style="font-size:0.8rem; color:var(--color-text-muted);">Design preview coming soon — check back here or watch for an email announcement.</p>
+        </div>
+      </div>
+
+      <!-- ── Order Form ── -->
+      <h2 class="section-title mt-4">Place Your Order</h2>
+      <hr class="divider">
+      <p class="text-muted mb-2">Submit a separate form for each person, or list multiple sizes in the notes field below.</p>
+
+      <div class="form-success">
+        ✅ Order received! We'll confirm your order details closer to the reunion. Thank you!
+      </div>
+
+      <form
+        class="form-wrap"
+        name="tshirt-orders"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="tshirts.html?success=true"
+        style="max-width: 700px;"
+      >
+        <input type="hidden" name="form-name" value="tshirt-orders">
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name <span style="color:var(--color-error)">*</span></label>
+            <input type="text" id="first-name" name="first_name" required placeholder="Jane">
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name <span style="color:var(--color-error)">*</span></label>
+            <input type="text" id="last-name" name="last_name" required placeholder="Smith">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address <span style="color:var(--color-error)">*</span></label>
+          <input type="email" id="email" name="email" required placeholder="jane@example.com">
+        </div>
+
+        <!-- Size Selector -->
+        <div class="form-group">
+          <label>T-Shirt Size <span style="color:var(--color-error)">*</span></label>
+          <div class="size-grid" role="group" aria-label="Select a size">
+            <input class="size-option" type="radio" name="size" id="sz-s"   value="S"   required>
+            <label for="sz-s">S</label>
+
+            <input class="size-option" type="radio" name="size" id="sz-m"   value="M">
+            <label for="sz-m">M</label>
+
+            <input class="size-option" type="radio" name="size" id="sz-l"   value="L">
+            <label for="sz-l">L</label>
+
+            <input class="size-option" type="radio" name="size" id="sz-xl"  value="XL">
+            <label for="sz-xl">XL</label>
+
+            <input class="size-option" type="radio" name="size" id="sz-2xl" value="2XL">
+            <label for="sz-2xl">2XL</label>
+
+            <input class="size-option" type="radio" name="size" id="sz-3xl" value="3XL">
+            <label for="sz-3xl">3XL</label>
+          </div>
+          <p class="mt-1" style="font-size:0.8rem; color:var(--color-text-muted);">Not sure? <a href="https://www.gildan.com/en/size-guide" target="_blank" rel="noopener">See a size guide</a> (unisex sizing — order up if between sizes).</p>
+        </div>
+
+        <!-- Color / Style -->
+        <div class="form-group">
+          <label>Shirt Style <span style="color:var(--color-error)">*</span></label>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:0.5rem;">Select your preferred style. Final color options will be confirmed with the design.</p>
+
+          <input class="style-option" type="radio" name="style" id="style-unisex" value="Unisex Crew Neck" required>
+          <label class="style-label" for="style-unisex">
+            <strong>Unisex Crew Neck</strong>
+            Standard fit, available in all sizes S–3XL
+          </label>
+
+          <input class="style-option" type="radio" name="style" id="style-womens" value="Women's V-Neck">
+          <label class="style-label" for="style-womens">
+            <strong>Women's V-Neck</strong>
+            Fitted cut, available in sizes S–2XL
+          </label>
+
+          <input class="style-option" type="radio" name="style" id="style-youth" value="Youth (Kids)">
+          <label class="style-label" for="style-youth">
+            <strong>Youth / Kids</strong>
+            For children — specify child's age or approximate size in notes below
+          </label>
+        </div>
+
+        <!-- Color Preference -->
+        <div class="form-group">
+          <label>Color Preference</label>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:0.6rem;">Official colors TBD — indicate your preference and we'll do our best to accommodate.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+            <label class="color-swatch">
+              <input type="radio" name="color" value="White">
+              <span class="swatch-dot" style="background:#f8f8f8; border-color:#ccc;"></span> White
+            </label>
+            <label class="color-swatch">
+              <input type="radio" name="color" value="Black">
+              <span class="swatch-dot" style="background:#222;"></span> Black
+            </label>
+            <label class="color-swatch">
+              <input type="radio" name="color" value="Navy">
+              <span class="swatch-dot" style="background:#1a2f5e;"></span> Navy
+            </label>
+            <label class="color-swatch">
+              <input type="radio" name="color" value="Royal Blue">
+              <span class="swatch-dot" style="background:#2563eb;"></span> Royal Blue
+            </label>
+            <label class="color-swatch">
+              <input type="radio" name="color" value="Red">
+              <span class="swatch-dot" style="background:#c0392b;"></span> Red
+            </label>
+            <label class="color-swatch">
+              <input type="radio" name="color" value="Forest Green">
+              <span class="swatch-dot" style="background:#2d6a4f;"></span> Forest Green
+            </label>
+            <label class="color-swatch">
+              <input type="radio" name="color" value="No Preference">
+              <span>No Preference</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Quantity -->
+        <div class="form-group">
+          <label for="quantity">Quantity <span style="color:var(--color-error)">*</span></label>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:0.4rem;">All shirts the same size/style? Use the counter. Different sizes for family members? List them in the notes field.</p>
+          <div class="qty-stepper" style="display:flex; align-items:center; gap:0.6rem;">
+            <button type="button" data-action="minus" class="btn btn-outline" style="padding: 0.45rem 0.9rem; font-size:1.2rem; line-height:1;">−</button>
+            <input type="number" name="quantity" id="quantity" min="1" max="20" value="1"
+              style="width:70px; text-align:center; padding:0.55rem; border:1.5px solid var(--color-border); border-radius:var(--radius); font-size:1rem; background:var(--color-bg);">
+            <button type="button" data-action="plus" class="btn btn-outline" style="padding: 0.45rem 0.9rem; font-size:1.2rem; line-height:1;">+</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="shirt-notes">Order Notes / Additional Sizes</label>
+          <textarea id="shirt-notes" name="shirt_notes"
+            placeholder="e.g., 'Also need 2 youth smalls for my kids (ages 6 &amp; 9)' or 'One XL and one 2XL in Navy'"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%; font-size:1.05rem; padding: 0.85rem;">
+          Submit T-Shirt Order
+        </button>
+        <p class="mt-2 text-muted text-center" style="font-size:0.85rem;">
+          No payment is collected now. We'll confirm your order and arrange payment at the reunion.
+        </p>
+      </form>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>CSW Family Reunion 2027</strong> &mdash; July 14–18, 2027</p>
+    <p>Questions? <a href="contact.html">Contact the organizer</a></p>
+    <p class="mt-1" style="font-size:0.8rem; opacity:0.6;">&copy; 2027 CSW Family Reunion. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — CSW Family Reunion 2027</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" style="display:flex;align-items:center;gap:0.6rem;">
+        <div class="logo-placeholder" title="Logo coming soon">CSW<br>LOGO</div>
+        CSW Reunion
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="family-info.html">Family Info</a></li>
+        <li><a href="travel.html">Travel & Lodging</a></li>
+        <li><a href="events.html">Events Sign-Up</a></li>
+        <li><a href="tshirts.html">T-Shirts</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-hero">
+      <h1>Contact the Organizer</h1>
+      <p>Have a question, suggestion, or just want to say hello? We'd love to hear from you.</p>
+    </div>
+
+    <div class="container">
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+
+        <!-- ── Contact Info ── -->
+        <div>
+          <h2 class="section-title">Get in Touch</h2>
+          <hr class="divider">
+
+          <div class="card mt-3">
+            <h3 style="margin-bottom:0.35rem;">Reunion Organizer</h3>
+            <p class="text-muted" style="font-size:0.9rem; margin-bottom:1.25rem;">
+              Send a message using the form and we'll get back to you as soon as possible — typically within 2–3 days.
+            </p>
+            <div style="display:flex; flex-direction:column; gap:0.75rem; font-size:0.95rem;">
+              <div style="display:flex; align-items:center; gap:0.75rem;">
+                <span style="font-size:1.3rem;">✉️</span>
+                <div>
+                  <div style="font-weight:600; font-size:0.85rem; color:var(--color-text-muted); text-transform:uppercase; letter-spacing:0.05em;">Email</div>
+                  <div>reunion2027@example.com <em style="font-size:0.8rem; color:var(--color-text-muted)">(placeholder)</em></div>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; gap:0.75rem;">
+                <span style="font-size:1.3rem;">📅</span>
+                <div>
+                  <div style="font-weight:600; font-size:0.85rem; color:var(--color-text-muted); text-transform:uppercase; letter-spacing:0.05em;">Reunion Dates</div>
+                  <div>July 14–18, 2027</div>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; gap:0.75rem;">
+                <span style="font-size:1.3rem;">⏰</span>
+                <div>
+                  <div style="font-weight:600; font-size:0.85rem; color:var(--color-text-muted); text-transform:uppercase; letter-spacing:0.05em;">Response Time</div>
+                  <div>2–3 business days</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mt-3">
+            <h3>Frequently Asked Questions</h3>
+            <div style="display:flex; flex-direction:column; gap:1rem; margin-top:0.75rem; font-size:0.9rem;">
+              <div>
+                <p style="font-weight:600;">When is the registration deadline?</p>
+                <p class="text-muted">Details coming soon — check back here or watch for an email announcement.</p>
+              </div>
+              <div>
+                <p style="font-weight:600;">Is there a cost to attend?</p>
+                <p class="text-muted">Event costs and contribution details are being finalized. More info to come.</p>
+              </div>
+              <div>
+                <p style="font-weight:600;">Can I bring a guest who isn't family?</p>
+                <p class="text-muted">Please contact the organizer directly to discuss guest attendance.</p>
+              </div>
+              <div>
+                <p style="font-weight:600;">How do I update my RSVP?</p>
+                <p class="text-muted">Send us a message using the contact form with your update and we'll take care of it.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Contact Form ── -->
+        <div>
+          <h2 class="section-title">Send a Message</h2>
+          <hr class="divider">
+
+          <div class="form-success mt-3">
+            ✅ Message sent! Thank you for reaching out. We'll reply within 2–3 days.
+          </div>
+
+          <form
+            class="form-wrap mt-3"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            action="contact.html?success=true"
+            style="max-width:100%; box-shadow:none; border:none; padding:0;"
+          >
+            <input type="hidden" name="form-name" value="contact">
+            <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name">First Name <span style="color:var(--color-error)">*</span></label>
+                <input type="text" id="first-name" name="first_name" required placeholder="Jane">
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last Name <span style="color:var(--color-error)">*</span></label>
+                <input type="text" id="last-name" name="last_name" required placeholder="Smith">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address <span style="color:var(--color-error)">*</span></label>
+              <input type="email" id="email" name="email" required placeholder="jane@example.com">
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject <span style="color:var(--color-error)">*</span></label>
+              <select id="subject" name="subject" required>
+                <option value="">— Select a topic —</option>
+                <option value="General Question">General question</option>
+                <option value="Registration / RSVP">Registration / RSVP</option>
+                <option value="Travel & Lodging">Travel &amp; lodging</option>
+                <option value="Events">Events</option>
+                <option value="T-Shirt Order">T-shirt order</option>
+                <option value="Venue / Directions">Venue / directions</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message <span style="color:var(--color-error)">*</span></label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                style="min-height:150px;"
+                placeholder="What's on your mind?"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%; font-size:1.05rem; padding: 0.85rem;">
+              Send Message
+            </button>
+          </form>
+        </div>
+
+      </div><!-- /grid -->
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>CSW Family Reunion 2027</strong> &mdash; July 14–18, 2027</p>
+    <p>Questions? <a href="contact.html">Contact the organizer</a></p>
+    <p class="mt-1" style="font-size:0.8rem; opacity:0.6;">&copy; 2027 CSW Family Reunion. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <style>
+    /* Stack the two-column layout on mobile */
+    @media (max-width: 700px) {
+      .container > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+</body>
+</html>

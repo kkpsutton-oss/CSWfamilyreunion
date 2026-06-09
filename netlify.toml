@@ -1,0 +1,11 @@
+# Netlify configuration for CSW Family Reunion 2027
+# Static site — no build command needed.
+
+[build]
+  publish = "."
+
+# Friendly 404 page
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 404

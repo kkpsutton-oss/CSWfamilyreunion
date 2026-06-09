@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Info — CSW Family Reunion 2027</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" style="display:flex;align-items:center;gap:0.6rem;">
+        <div class="logo-placeholder" title="Logo coming soon">CSW<br>LOGO</div>
+        CSW Reunion
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="family-info.html">Family Info</a></li>
+        <li><a href="travel.html">Travel & Lodging</a></li>
+        <li><a href="events.html">Events Sign-Up</a></li>
+        <li><a href="tshirts.html">T-Shirts</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-hero">
+      <h1>Family Information</h1>
+      <p>Let us know you're coming! Fill out this form so we can plan for everyone.</p>
+    </div>
+
+    <div class="container">
+
+      <div class="highlight-box">
+        <strong>Please submit one form per household.</strong> Include everyone attending so we can get an accurate headcount for meals, activities, and t-shirts.
+      </div>
+
+      <div class="form-success">
+        ✅ Thank you! Your family info has been submitted. We'll be in touch with more details as the reunion approaches.
+      </div>
+
+      <!-- Netlify Forms: data-netlify="true" activates Netlify's form handling -->
+      <form
+        class="form-wrap"
+        name="family-info"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="family-info.html?success=true"
+      >
+        <!-- Netlify hidden fields -->
+        <input type="hidden" name="form-name" value="family-info">
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+        <h2 class="section-title" style="font-size:1.4rem; margin-bottom:1.5rem;">Your Family Details</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name <span style="color:var(--color-error)">*</span></label>
+            <input type="text" id="first-name" name="first_name" required autocomplete="given-name" placeholder="Jane">
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name <span style="color:var(--color-error)">*</span></label>
+            <input type="text" id="last-name" name="last_name" required autocomplete="family-name" placeholder="Smith">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address <span style="color:var(--color-error)">*</span></label>
+          <input type="email" id="email" name="email" required autocomplete="email" placeholder="jane@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(555) 555-5555">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="adults">Number of Adults <span style="color:var(--color-error)">*</span></label>
+            <select id="adults" name="adults" required>
+              <option value="">— Select —</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6+">6 or more</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="children">Number of Children</label>
+            <select id="children" name="children">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5+">5 or more</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="dietary">Dietary Restrictions / Allergies</label>
+          <textarea
+            id="dietary"
+            name="dietary_restrictions"
+            placeholder="e.g., vegetarian, gluten-free, nut allergy — list everyone in your party who has restrictions"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="lodging">Where will you be staying?</label>
+          <select id="lodging" name="lodging">
+            <option value="">— Select —</option>
+            <option value="hotel">Hotel (see Travel page for recommendations)</option>
+            <option value="family">Staying with family</option>
+            <option value="airbnb">Vacation rental / Airbnb</option>
+            <option value="undecided">Haven't decided yet</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Anything else we should know?</label>
+          <textarea id="notes" name="notes" placeholder="Special accommodations, questions, or just a hello!"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%; font-size:1.05rem; padding: 0.85rem;">
+          Submit Family Info
+        </button>
+      </form>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>CSW Family Reunion 2027</strong> &mdash; July 14–18, 2027</p>
+    <p>Questions? <a href="contact.html">Contact the organizer</a></p>
+    <p class="mt-1" style="font-size:0.8rem; opacity:0.6;">&copy; 2027 CSW Family Reunion. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
