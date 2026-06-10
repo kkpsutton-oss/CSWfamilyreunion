@@ -1,5 +1,13 @@
 /* CSW Family Reunion 2027 — shared JavaScript */
 
+/* ──────────────────────────────────────────────────────────────
+   Google Apps Script Web App URL
+   After deploying the script in apps-script/Code.gs as a web app
+   (Deploy > New deployment > Web app, Execute as: Me, Who has
+   access: Anyone), paste the resulting /exec URL below.
+   ────────────────────────────────────────────────────────────── */
+const GOOGLE_SCRIPT_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+
 /* ── Navigation ── */
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -101,8 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* Wire up every Netlify form on the page */
-  document.querySelectorAll('form[data-netlify="true"]').forEach(form => {
+  /* Wire up every form that submits to the Google Sheet backend */
+  document.querySelectorAll('form.gsheet-form').forEach(form => {
     const formName = form.getAttribute('name');
     if (!formName) return;
 
@@ -110,11 +118,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const store = loadStore();
     if (store[formName]) restoreForm(form, store[formName]);
 
-    /* Save on every submit (before Netlify posts) */
-    form.addEventListener('submit', () => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      /* Honeypot — if filled, silently treat as success */
+      const honeypot = form.querySelector('input[name="bot-field"]');
+      if (honeypot && honeypot.value) {
+        window.location.href = 'success.html';
+        return;
+      }
+
+      const data = serializeForm(form);
+      data.formName = formName;
+
+      /* Save locally */
       const store = loadStore();
-      store[formName] = serializeForm(form);
+      store[formName] = data;
       localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.dataset.originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Submitting…';
+      }
+
+      /* Apps Script web apps don't return CORS headers, so the
+         response is opaque under no-cors — fire-and-forget, then
+         redirect to the thank-you page regardless of outcome. */
+      fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: JSON.stringify(data),
+      })
+        .catch(() => {})
+        .finally(() => {
+          window.location.href = 'success.html';
+        });
     });
   });
 

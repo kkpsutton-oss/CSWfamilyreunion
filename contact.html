@@ -100,16 +100,13 @@
           <h2 class="section-title">Send a Message</h2>
           <hr class="divider">
 
+          <!-- Submits to a Google Sheet via Apps Script — see js/main.js -->
           <form
-            class="form-wrap mt-3"
+            class="form-wrap mt-3 gsheet-form"
             name="contact"
             method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            action="/success.html"
             style="max-width:100%; box-shadow:none; border:none; padding:0;"
           >
-            <input type="hidden" name="form-name" value="contact">
             <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
 
             <div class="form-row">

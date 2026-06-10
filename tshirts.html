@@ -112,16 +112,13 @@
       <hr class="divider">
       <p class="text-muted mb-2">Submit a separate form for each person, or list multiple sizes in the notes field below.</p>
 
+      <!-- Submits to a Google Sheet via Apps Script — see js/main.js -->
       <form
-        class="form-wrap"
+        class="form-wrap gsheet-form"
         name="tshirt-orders"
         method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        action="/success.html"
         style="max-width: 700px;"
       >
-        <input type="hidden" name="form-name" value="tshirt-orders">
         <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
 
         <div class="form-row">

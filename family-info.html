@@ -40,17 +40,12 @@
         <strong>Please submit one form per household.</strong> Include everyone attending so we can get an accurate headcount for meals, activities, and t-shirts.
       </div>
 
-      <!-- Netlify Forms: data-netlify="true" activates Netlify's form handling -->
+      <!-- Submits to a Google Sheet via Apps Script — see js/main.js -->
       <form
-        class="form-wrap"
+        class="form-wrap gsheet-form"
         name="family-info"
         method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        action="/success.html"
       >
-        <!-- Netlify hidden fields -->
-        <input type="hidden" name="form-name" value="family-info">
         <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
 
         <h2 class="section-title" style="font-size:1.4rem; margin-bottom:1.5rem;">Your Family Details</h2>

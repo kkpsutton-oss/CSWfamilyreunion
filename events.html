@@ -93,15 +93,12 @@
       <h2 class="section-title">RSVP for Events</h2>
       <hr class="divider">
 
+      <!-- Submits to a Google Sheet via Apps Script — see js/main.js -->
       <form
-        class="form-wrap"
+        class="form-wrap gsheet-form"
         name="events-signup"
         method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        action="/success.html"
       >
-        <input type="hidden" name="form-name" value="events-signup">
         <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
 
         <div class="form-row">
