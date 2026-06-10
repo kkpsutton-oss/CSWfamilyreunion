@@ -32,23 +32,21 @@
 
   <main>
 
-    <!-- ── Hero Banner ── -->
-    <section class="page-hero" style="padding: 4rem 1.25rem 4rem;">
-      <p class="badge mb-2">July 14 – 18, 2027</p>
-      <h1 style="font-size: clamp(2rem, 6vw, 3.5rem); margin-bottom: 0.75rem;">
-        CSW Family Reunion 2027
-      </h1>
-      <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto;">
-        Five days of food, laughter, and memories with the people who matter most.
-        We can't wait to see you there!
-      </p>
-    </section>
-
-    <!-- ── Countdown ── -->
-    <section style="background: var(--color-surface-alt); padding: 3rem 1.25rem; text-align: center;">
-      <div class="container" style="padding-top: 0; padding-bottom: 0;">
-        <h2 class="section-title">Counting Down to the Reunion</h2>
-        <p class="text-muted mt-1 mb-2">July 14, 2027 — mark your calendars!</p>
+    <!-- ── Hero Grid ── -->
+    <section class="hero-grid">
+      <div class="hero-cell text-cell">
+        <h1 class="hero-title">CSW Family Reunion<span class="accent">2027</span></h1>
+        <a href="family-info.html" class="hero-link">RSVP</a>
+      </div>
+      <div class="hero-cell photo-cell">
+        <span class="photo-icon">📷</span>
+        Photo Placeholder<br>Family Reunion Memories
+      </div>
+      <div class="hero-cell photo-cell">
+        <span class="photo-icon">📷</span>
+        Photo Placeholder<br>Family Reunion Memories
+      </div>
+      <div class="hero-cell center-cell">
         <div id="countdown" class="countdown-wrap">
           <div class="countdown-unit">
             <span class="number" id="cd-days">--</span>
@@ -70,9 +68,74 @@
       </div>
     </section>
 
+    <!-- ── Our Agenda ── -->
+    <section class="agenda-section">
+      <h2 class="agenda-title">Our Agenda</h2>
+      <div class="agenda-grid">
+        <div class="agenda-item">
+          <h3>Welcome Dinner</h3>
+          <p>Kick off the weekend with a sit-down dinner, opening remarks, and family stories</p>
+        </div>
+        <div class="agenda-item">
+          <h3>Cookout &amp; Games</h3>
+          <p>Burgers, yard games, a photo booth, and friendly family team competitions</p>
+        </div>
+        <div class="agenda-item">
+          <h3>Farewell Brunch</h3>
+          <p>One more meal together to share memories before we say goodbye</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── When + Where ── -->
+    <section class="where-section">
+      <div class="map-placeholder">
+        <div class="map-pin"><span>📍</span></div>
+      </div>
+      <div class="where-info">
+        <h3>When + Where</h3>
+        <p class="when">July 14 &ndash; July 18<br>Atlanta, GA</p>
+        <div class="where-links">
+          <a href="travel.html">Travel &amp; Lodging</a>
+          <a href="travel.html#flights-from-rochester">Fly</a>
+          <a href="travel.html#driving-from-rochester">Drive</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Events ── -->
+    <section class="events-showcase">
+      <div class="events-showcase-header">
+        <h2 class="events-showcase-title">Events</h2>
+        <a href="events.html" class="hero-link">Sign Up</a>
+      </div>
+      <div class="events-showcase-grid">
+        <div>
+          <div class="event-photo"><span class="photo-icon">🍽️</span>Photo Placeholder</div>
+          <h4>Welcome Dinner</h4>
+          <p>Friday, July 14 &bull; 6:00&ndash;9:00 PM &bull; Venue Dining Hall</p>
+        </div>
+        <div>
+          <div class="event-photo"><span class="photo-icon">🍔</span>Photo Placeholder</div>
+          <h4>Cookout &amp; Games</h4>
+          <p>Saturday, July 15 &bull; 11:00 AM&ndash;6:00 PM &bull; Outdoor Pavilion</p>
+        </div>
+        <div>
+          <div class="event-photo"><span class="photo-icon">🥐</span>Photo Placeholder</div>
+          <h4>Farewell Brunch</h4>
+          <p>Sunday, July 16 &bull; 10:00 AM&ndash;1:00 PM &bull; Venue Dining Hall</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Saved Data Summary ── -->
+    <section class="container">
+      <div id="saved-data-summary"></div>
+    </section>
+
     <!-- ── Quick Nav ── -->
     <section class="container">
-      <h2 class="section-title">Everything You Need</h2>
+      <h2 class="section-title">Explore the Site</h2>
       <hr class="divider">
       <p class="text-muted mb-2">Jump to any section to get started.</p>
 
@@ -100,44 +163,30 @@
       </div>
     </section>
 
-    <!-- ── Saved Data Summary ── -->
-    <section class="container">
-      <div id="saved-data-summary"></div>
-    </section>
-
-    <!-- ── About the Reunion ── -->
-    <section style="background: var(--color-surface-alt); padding: 3rem 0;">
-      <div class="container" style="padding-top: 0; padding-bottom: 0;">
-        <h2 class="section-title">About the Reunion</h2>
-        <hr class="divider">
-        <div class="card-grid mt-3">
-          <div class="card">
-            <h3>📅 When</h3>
-            <p>July 14 – 18, 2027. Five full days of family togetherness — arrive Tuesday, depart Saturday.</p>
-          </div>
-          <div class="card">
-            <h3>📍 Where</h3>
-            <p>Atlanta, Georgia! Exact venue address, maps, and parking info will be posted here as the date approaches — see <a href="travel.html">Travel &amp; Lodging</a> for flight and driving info.</p>
-          </div>
-          <div class="card">
-            <h3>🗓️ What's Planned</h3>
-            <p>Friday welcome dinner, Saturday cookout &amp; games, Sunday brunch, and more activities throughout the weekend.</p>
-          </div>
-          <div class="card">
-            <h3>📝 What to Do Now</h3>
-            <p>Fill out the <a href="family-info.html">Family Info</a> form so we know you're coming, then sign up for <a href="events.html">events</a> and order your <a href="tshirts.html">reunion t-shirt</a>.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <!-- ── Footer ── -->
   <footer class="site-footer">
-    <p><strong>CSW Family Reunion 2027</strong> &mdash; July 14–18, 2027</p>
-    <p>Questions? <a href="contact.html">Contact the organizer</a></p>
-    <p class="mt-1" style="font-size:0.8rem; opacity:0.6;">&copy; 2027 CSW Family Reunion. All rights reserved.</p>
+    <div class="footer-inner">
+      <h2 class="footer-title">Get In Touch</h2>
+      <div class="footer-grid">
+        <div>
+          <h4>Where &amp; When</h4>
+          <p>Atlanta, GA<br>July 14&ndash;18, 2027</p>
+        </div>
+        <div>
+          <h4>Email</h4>
+          <p><a href="mailto:reunion2027@example.com">reunion2027@example.com</a><br><span style="opacity:0.6; font-size:0.8rem;">(placeholder)</span></p>
+        </div>
+        <div>
+          <h4>Phone</h4>
+          <p>(123) 456-7890<br><span style="opacity:0.6; font-size:0.8rem;">(placeholder)</span></p>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <p class="footer-copy"><strong>CSW Family Reunion 2027</strong> &mdash; <a href="contact.html">Contact the organizer</a></p>
+      <p class="footer-copy" style="opacity:0.6;">&copy; 2027 CSW Family Reunion. All rights reserved.</p>
+    </div>
   </footer>
 
   <script src="js/main.js"></script>
