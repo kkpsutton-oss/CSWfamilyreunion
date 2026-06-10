@@ -28,7 +28,7 @@
   --color-error:         #a0442b;   /* form error red */
 
   /* --- Typography --- */
-  --font-heading: 'Georgia', 'Times New Roman', serif;
+  --font-heading: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
   --font-body:    'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 
   /* --- Spacing & Shape --- */
