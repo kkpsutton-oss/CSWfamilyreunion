@@ -6,7 +6,7 @@
    (Deploy > New deployment > Web app, Execute as: Me, Who has
    access: Anyone), paste the resulting /exec URL below.
    ────────────────────────────────────────────────────────────── */
-const GOOGLE_SCRIPT_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwX9vxIqzkIMM-KJOoWRoQtNVDTLv1F7i_6I8TZNG85UB4fxixd0uLyedv1mqeX6z09/exec';
 
 /* ── Navigation ── */
 document.addEventListener('DOMContentLoaded', () => {
