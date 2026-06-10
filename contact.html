@@ -100,17 +100,13 @@
           <h2 class="section-title">Send a Message</h2>
           <hr class="divider">
 
-          <div class="form-success mt-3">
-            ✅ Message sent! Thank you for reaching out. We'll reply within 2–3 days.
-          </div>
-
           <form
             class="form-wrap mt-3"
             name="contact"
             method="POST"
             data-netlify="true"
             netlify-honeypot="bot-field"
-            action="contact.html?success=true"
+            action="/success.html"
             style="max-width:100%; box-shadow:none; border:none; padding:0;"
           >
             <input type="hidden" name="form-name" value="contact">

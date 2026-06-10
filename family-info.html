@@ -40,10 +40,6 @@
         <strong>Please submit one form per household.</strong> Include everyone attending so we can get an accurate headcount for meals, activities, and t-shirts.
       </div>
 
-      <div class="form-success">
-        ✅ Thank you! Your family info has been submitted. We'll be in touch with more details as the reunion approaches.
-      </div>
-
       <!-- Netlify Forms: data-netlify="true" activates Netlify's form handling -->
       <form
         class="form-wrap"
@@ -51,7 +47,7 @@
         method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
-        action="family-info.html?success=true"
+        action="/success.html"
       >
         <!-- Netlify hidden fields -->
         <input type="hidden" name="form-name" value="family-info">

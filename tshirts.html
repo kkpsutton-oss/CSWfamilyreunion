@@ -112,17 +112,13 @@
       <hr class="divider">
       <p class="text-muted mb-2">Submit a separate form for each person, or list multiple sizes in the notes field below.</p>
 
-      <div class="form-success">
-        ✅ Order received! We'll confirm your order details closer to the reunion. Thank you!
-      </div>
-
       <form
         class="form-wrap"
         name="tshirt-orders"
         method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
-        action="tshirts.html?success=true"
+        action="/success.html"
         style="max-width: 700px;"
       >
         <input type="hidden" name="form-name" value="tshirt-orders">

@@ -118,16 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ── Netlify Form success message ── */
-  if (window.location.search.includes('success=true')) {
-    const msg = document.querySelector('.form-success');
-    if (msg) {
-      msg.style.display = 'block';
-      msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-    history.replaceState(null, '', window.location.pathname);
-  }
-
   /* ── T-shirt quantity stepper ── */
   document.querySelectorAll('.qty-stepper').forEach(wrap => {
     const minus = wrap.querySelector('[data-action="minus"]');

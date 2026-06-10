@@ -93,17 +93,13 @@
       <h2 class="section-title">RSVP for Events</h2>
       <hr class="divider">
 
-      <div class="form-success">
-        ✅ You're signed up! We've recorded your event RSVPs. See you in July 2027!
-      </div>
-
       <form
         class="form-wrap"
         name="events-signup"
         method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
-        action="events.html?success=true"
+        action="/success.html"
       >
         <input type="hidden" name="form-name" value="events-signup">
         <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>

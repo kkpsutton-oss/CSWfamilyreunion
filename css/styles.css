@@ -354,18 +354,6 @@ main { flex: 1; }
 }
 .btn:active { transform: translateY(0); }
 
-/* Form submit feedback */
-.form-success {
-  display: none;
-  background: #edf7f0;
-  border: 1px solid #a8d5b5;
-  border-radius: var(--radius);
-  padding: 1rem 1.25rem;
-  color: var(--color-success);
-  margin-top: 1rem;
-  font-weight: 600;
-}
-
 /* ============================================================
    Countdown Timer
    ============================================================ */
