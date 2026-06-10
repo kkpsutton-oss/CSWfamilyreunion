@@ -5,24 +5,24 @@
    ============================================================ */
 
 :root {
-  /* --- Brand Colors (swap these when final branding is ready) --- */
-  --color-primary:       #c9a84c;   /* soft gold */
-  --color-primary-dark:  #a8863a;   /* deeper gold for hover states */
-  --color-primary-light: #e8d5a3;   /* pale gold tint */
-  --color-accent:        #8b6914;   /* warm amber accent */
+  /* --- Brand Colors --- */
+  --color-primary:       #6DBF8A;   /* sage green */
+  --color-primary-dark:  #4F9E6E;   /* deeper green for hover states */
+  --color-primary-light: #D9F0E2;   /* pale green tint */
+  --color-accent:        #2F6B4C;   /* deep forest green accent */
 
-  --color-bg:            #faf8f4;   /* warm off-white page background */
+  --color-bg:            #F5F2EA;   /* warm cream page background */
   --color-surface:       #ffffff;   /* card / form surface */
-  --color-surface-alt:   #f5f1ea;   /* slightly warmer surface for alternating rows */
+  --color-surface-alt:   #EAE4D5;   /* warm cream for alternating rows */
 
-  --color-text:          #3d3530;   /* warm dark brown text */
-  --color-text-muted:    #7a6e66;   /* secondary / caption text */
+  --color-text:          #33392F;   /* deep green-gray text */
+  --color-text-muted:    #75806F;   /* secondary / caption text */
 
-  --color-border:        #ddd5c4;   /* subtle warm gray border */
-  --color-nav-bg:        #3d3530;   /* dark warm-brown nav bar */
-  --color-nav-text:      #f5f1ea;   /* nav link color */
-  --color-nav-hover:     #c9a84c;   /* nav link hover */
-  --color-footer-bg:     #2e2420;   /* footer background */
+  --color-border:        #DDD6C5;   /* subtle warm cream border */
+  --color-nav-bg:        #2E4A3A;   /* dark green nav bar */
+  --color-nav-text:      #EAE4D5;   /* nav link color */
+  --color-nav-hover:     #6DBF8A;   /* nav link hover */
+  --color-footer-bg:     #233A2D;   /* footer background */
 
   --color-success:       #4a7c59;   /* form success green */
   --color-error:         #a0442b;   /* form error red */
