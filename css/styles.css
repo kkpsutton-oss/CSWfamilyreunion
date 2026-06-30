@@ -6,23 +6,24 @@
 
 :root {
   /* --- Brand Colors --- */
-  --color-primary:       #6DBF8A;   /* sage green */
-  --color-primary-dark:  #4F9E6E;   /* deeper green for hover states */
-  --color-primary-light: #D9F0E2;   /* pale green tint */
-  --color-accent:        #2F6B4C;   /* deep forest green accent */
+  --color-primary:       #8A9A5B;   /* warm olive-sage */
+  --color-primary-dark:  #6E7C47;   /* deeper olive for hover states */
+  --color-primary-light: #E4E6D3;   /* pale olive tint */
+  --color-accent:        #5C6B3C;   /* deep olive accent */
 
-  --color-bg:            #F5F2EA;   /* warm cream page background */
+  --color-bg:            #F6F3E9;   /* warm cream page background */
   --color-surface:       #ffffff;   /* card / form surface */
-  --color-surface-alt:   #EAE4D5;   /* warm cream for alternating rows */
+  --color-surface-alt:   #ECE6D6;   /* warm cream for alternating rows */
 
-  --color-text:          #33392F;   /* deep green-gray text */
-  --color-text-muted:    #75806F;   /* secondary / caption text */
+  --color-text:          #38392E;   /* deep olive-gray text */
+  --color-text-muted:    #7C7C66;   /* secondary / caption text */
 
-  --color-border:        #DDD6C5;   /* subtle warm cream border */
-  --color-nav-bg:        #2E4A3A;   /* dark green nav bar */
-  --color-nav-text:      #EAE4D5;   /* nav link color */
-  --color-nav-hover:     #6DBF8A;   /* nav link hover */
-  --color-footer-bg:     #233A2D;   /* footer background */
+  --color-border:        #DEDABF;   /* subtle warm cream border */
+  --color-nav-bg:        #38422A;   /* dark olive nav bar */
+  --color-nav-text:      #ECE6D6;   /* nav link color */
+  --color-nav-hover:     #B7C28A;   /* nav link hover */
+  --color-footer-bg:     #2B321F;   /* footer background */
+  --color-overlay:       rgba(56, 66, 42, 0.55); /* olive photo overlay */
 
   --color-success:       #4a7c59;   /* form success green */
   --color-error:         #a0442b;   /* form error red */
@@ -66,6 +67,18 @@ h1, h2, h3, h4 {
   font-family: var(--font-heading);
   line-height: 1.25;
   color: var(--color-text);
+}
+
+/* "Our album"-style eyebrow label used above large serif headings */
+.eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.6rem;
 }
 
 /* ============================================================
@@ -170,15 +183,23 @@ h1, h2, h3, h4 {
    Page Hero / Banner
    ============================================================ */
 .page-hero {
-  background: linear-gradient(135deg, var(--color-nav-bg) 0%, var(--color-accent) 100%);
+  background: linear-gradient(var(--color-overlay), var(--color-overlay)),
+              linear-gradient(135deg, var(--color-nav-bg) 0%, var(--color-accent) 100%);
   color: var(--color-nav-text);
-  padding: 3.5rem 1.25rem 3rem;
+  padding: 4.5rem 1.25rem 3.5rem;
   text-align: center;
 }
-.page-hero h1 {
-  font-size: clamp(1.75rem, 5vw, 3rem);
+.page-hero .eyebrow {
   color: var(--color-primary-light);
-  margin-bottom: 0.5rem;
+  opacity: 0.85;
+}
+.page-hero h1 {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: var(--color-primary-light);
+  margin-bottom: 0.75rem;
 }
 .page-hero p {
   font-size: 1.1rem;
@@ -225,6 +246,7 @@ main { flex: 1; }
    Section headings
    ============================================================ */
 .section-title {
+  font-style: italic;
   font-size: clamp(1.4rem, 3vw, 2rem);
   margin-bottom: 0.4rem;
 }
@@ -544,12 +566,11 @@ main { flex: 1; }
   text-align: center;
 }
 .hero-cell.photo-cell {
-  background: var(--color-primary-light);
-  border: 2px dashed var(--color-primary);
+  background: linear-gradient(var(--color-overlay), var(--color-overlay)), var(--color-primary-light);
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: var(--color-accent);
+  color: var(--color-nav-text);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -561,6 +582,7 @@ main { flex: 1; }
 
 .hero-title {
   font-family: var(--font-heading);
+  font-style: italic;
   font-weight: 400;
   font-size: clamp(2.25rem, 7vw, 4rem);
   line-height: 1.1;
@@ -569,6 +591,7 @@ main { flex: 1; }
 }
 .hero-title .accent {
   display: block;
+  font-style: italic;
   font-size: clamp(2.75rem, 9vw, 5.5rem);
   font-weight: 700;
   color: var(--color-accent);
@@ -597,6 +620,7 @@ main { flex: 1; }
 }
 .agenda-title {
   font-family: var(--font-heading);
+  font-style: italic;
   font-weight: 400;
   font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: 3rem;
@@ -715,6 +739,7 @@ main { flex: 1; }
 }
 .events-showcase-title {
   font-family: var(--font-heading);
+  font-style: italic;
   font-weight: 400;
   font-size: clamp(2rem, 5vw, 3rem);
 }
@@ -725,15 +750,14 @@ main { flex: 1; }
 }
 .event-photo {
   aspect-ratio: 1;
-  background: var(--color-surface-alt);
-  border: 2px dashed var(--color-border);
+  background: linear-gradient(var(--color-overlay), var(--color-overlay)), var(--color-surface-alt);
   border-radius: var(--radius);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  color: var(--color-text-muted);
+  color: var(--color-nav-text);
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -770,6 +794,7 @@ main { flex: 1; }
 }
 .footer-title {
   font-family: var(--font-heading);
+  font-style: italic;
   font-weight: 400;
   font-size: clamp(1.8rem, 4vw, 2.75rem);
   color: var(--color-primary-light);

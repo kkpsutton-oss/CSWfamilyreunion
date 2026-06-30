@@ -33,6 +33,7 @@
 
   <main>
     <div class="page-hero">
+      <span class="eyebrow">Reunion 2027</span>
       <h1>Family Information</h1>
       <p>Let us know you're coming! Fill out this form so we can plan for everyone.</p>
     </div>
@@ -62,6 +63,29 @@
             <label for="last-name">Last Name <span style="color:var(--color-error)">*</span></label>
             <input type="text" id="last-name" name="last_name" required autocomplete="family-name" placeholder="Smith">
           </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="date_of_birth">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="mother-name">Mother's Name</label>
+            <input type="text" id="mother-name" name="mother_name" placeholder="Mother's full name">
+          </div>
+          <div class="form-group">
+            <label for="father-name">Father's Name</label>
+            <input type="text" id="father-name" name="father_name" placeholder="Father's full name">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="children-names">Children's Names</label>
+          <textarea id="children-names" name="children_names" placeholder="List the names (and ages, if you'd like) of any children attending"></textarea>
         </div>
 
         <div class="form-group">
