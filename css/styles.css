@@ -6,23 +6,23 @@
 
 :root {
   /* --- Brand Colors --- */
-  --color-primary:       #6DBF8A;   /* sage green */
-  --color-primary-dark:  #4F9E6E;   /* deeper green for hover states */
-  --color-primary-light: #D9F0E2;   /* pale green tint */
-  --color-accent:        #2F6B4C;   /* deep forest green accent */
+  --color-primary:       #50C878;   /* emerald green */
+  --color-primary-dark:  #3DA862;   /* deeper green for hover states */
+  --color-primary-light: #DCEEE0;   /* pale green tint */
+  --color-accent:        #545C3D;   /* deep olive — solid color blocks */
 
-  --color-bg:            #F5F2EA;   /* warm cream page background */
+  --color-bg:            #F8F6F0;   /* warm cream page background */
   --color-surface:       #ffffff;   /* card / form surface */
-  --color-surface-alt:   #EAE4D5;   /* warm cream for alternating rows */
+  --color-surface-alt:   #F0EDE2;   /* warm cream for alternating rows / photo placeholders */
 
-  --color-text:          #33392F;   /* deep green-gray text */
-  --color-text-muted:    #75806F;   /* secondary / caption text */
+  --color-text:          #2E2E26;   /* deep olive-black text */
+  --color-text-muted:    #6B6B5C;   /* secondary / caption text */
 
-  --color-border:        #DDD6C5;   /* subtle warm cream border */
-  --color-nav-bg:        #2E4A3A;   /* dark green nav bar */
-  --color-nav-text:      #EAE4D5;   /* nav link color */
-  --color-nav-hover:     #6DBF8A;   /* nav link hover */
-  --color-footer-bg:     #233A2D;   /* footer background */
+  --color-border:        #E4E0D3;   /* subtle warm cream border */
+  --color-nav-bg:        #545C3D;   /* deep olive nav bar */
+  --color-nav-text:      #F8F6F0;   /* nav link color */
+  --color-nav-hover:     #50C878;   /* nav link hover */
+  --color-footer-bg:     #3D4330;   /* darker olive footer background */
 
   --color-success:       #4a7c59;   /* form success green */
   --color-error:         #a0442b;   /* form error red */
@@ -524,54 +524,47 @@ main { flex: 1; }
 }
 
 /* ============================================================
-   Home Hero Grid
+   Home Split Hero — solid color text block + full-height photo
    ============================================================ */
-.hero-grid {
+.split-hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-auto-rows: minmax(260px, auto);
+  min-height: 560px;
 }
-.hero-cell {
+.split-hero-text {
+  background: var(--color-accent);
+  color: var(--color-nav-text);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
-  padding: 2.5rem;
+  text-align: left;
+  padding: 4rem 3.5rem;
 }
-.hero-cell.text-cell { background: var(--color-bg); }
-.hero-cell.center-cell {
-  align-items: center;
-  text-align: center;
-}
-.hero-cell.photo-cell {
-  background: var(--color-primary-light);
-  border: 2px dashed var(--color-primary);
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--color-accent);
-  font-weight: 700;
+.split-hero-eyebrow {
+  font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.8rem;
-  gap: 0.5rem;
-  line-height: 1.6;
+  letter-spacing: 0.18em;
+  opacity: 0.75;
 }
-.hero-cell.photo-cell .photo-icon { font-size: 2.5rem; }
-
 .hero-title {
   font-family: var(--font-heading);
   font-weight: 400;
-  font-size: clamp(2.25rem, 7vw, 4rem);
+  font-size: clamp(2.25rem, 6vw, 3.4rem);
   line-height: 1.1;
-  color: var(--color-nav-bg);
-  margin-bottom: 1.5rem;
+  color: var(--color-nav-text);
+  margin: 1.25rem 0;
 }
 .hero-title .accent {
   display: block;
-  font-size: clamp(2.75rem, 9vw, 5.5rem);
   font-weight: 700;
-  color: var(--color-accent);
+  color: var(--color-primary-light);
+}
+.split-hero-sub {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  max-width: 320px;
+  line-height: 1.7;
 }
 .hero-link {
   font-family: var(--font-heading);
@@ -579,21 +572,62 @@ main { flex: 1; }
   font-size: 1.1rem;
   text-decoration: underline;
   text-underline-offset: 4px;
-  color: var(--color-text);
+  color: var(--color-nav-text);
 }
-.hero-cell .countdown-wrap { margin: 0; }
+.split-hero-photo {
+  background: var(--color-surface-alt);
+  border-left: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+}
+.split-hero-photo .photo-icon { font-size: 2.5rem; }
 
 @media (max-width: 768px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .hero-cell { padding: 2rem 1.5rem; min-height: 200px; }
+  .split-hero { grid-template-columns: 1fr; min-height: 0; }
+  .split-hero-text { padding: 3rem 1.5rem; }
+  .split-hero-photo { min-height: 280px; }
+}
+
+/* ============================================================
+   Countdown Strip
+   ============================================================ */
+.countdown-section {
+  text-align: left;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3.5rem 1.25rem 1rem;
+}
+.countdown-section h2 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 4vw, 2.25rem);
+  margin-bottom: 0.5rem;
+}
+.countdown-section p {
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+.countdown-wrap { justify-content: flex-start; }
+@media (max-width: 700px) {
+  .countdown-wrap { justify-content: center; }
 }
 
 /* ============================================================
    Agenda Section
    ============================================================ */
 .agenda-section {
-  text-align: center;
-  padding: 4rem 1.25rem;
+  text-align: left;
+  padding: 5rem 1.25rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 .agenda-title {
   font-family: var(--font-heading);
@@ -605,8 +639,6 @@ main { flex: 1; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
-  max-width: var(--max-width);
-  margin: 0 auto;
 }
 .agenda-item h3 {
   font-size: 0.85rem;
@@ -631,26 +663,22 @@ main { flex: 1; }
 .where-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
+  gap: 3rem;
   align-items: center;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 1rem 1.25rem 4rem;
+  padding: 1rem 1.25rem 5rem;
 }
 .map-placeholder {
   aspect-ratio: 1;
-  background:
-    repeating-linear-gradient(0deg, var(--color-surface-alt) 0 18%, transparent 18% 20%),
-    repeating-linear-gradient(90deg, var(--color-surface-alt) 0 18%, transparent 18% 20%),
-    var(--color-primary-light);
-  border: 2px dashed var(--color-primary);
-  border-radius: var(--radius-lg);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .map-pin {
-  background: var(--color-nav-bg);
+  background: var(--color-accent);
   color: #fff;
   width: 60px;
   height: 60px;
@@ -660,11 +688,10 @@ main { flex: 1; }
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  box-shadow: var(--shadow-lg);
 }
 .map-pin span { transform: rotate(45deg); }
 
-.where-info { text-align: center; }
+.where-info { text-align: left; }
 .where-info h3 {
   font-size: 0.85rem;
   text-transform: uppercase;
@@ -684,7 +711,7 @@ main { flex: 1; }
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  align-items: center;
+  align-items: flex-start;
 }
 .where-links a {
   font-family: var(--font-heading);
@@ -698,12 +725,91 @@ main { flex: 1; }
 }
 
 /* ============================================================
+   Flat 3-Photo Grid — equal height, tight gaps, no radius/shadow
+   ============================================================ */
+.photo-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem 5rem;
+}
+.photo-grid-3 .photo-tile {
+  aspect-ratio: 1;
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.photo-grid-3 .photo-tile .photo-icon { font-size: 1.8rem; }
+@media (max-width: 700px) {
+  .photo-grid-3 { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   Full-Width Feature Banner — photo with centered solid overlay
+   ============================================================ */
+.feature-banner {
+  position: relative;
+  min-height: 460px;
+  background: var(--color-surface-alt);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.25rem;
+}
+.feature-banner-box {
+  background: var(--color-accent);
+  color: var(--color-nav-text);
+  max-width: 640px;
+  width: 100%;
+  padding: 3rem 2.5rem;
+  text-align: center;
+}
+.feature-banner-title {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  margin-bottom: 2.25rem;
+}
+.feature-banner-icons {
+  display: flex;
+  justify-content: space-around;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.feature-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.82rem;
+  max-width: 120px;
+  opacity: 0.92;
+}
+.feature-icon .icon {
+  font-size: 1.9rem;
+  line-height: 1;
+  filter: grayscale(1) brightness(10);
+}
+
+/* ============================================================
    Events Showcase (Home page preview)
    ============================================================ */
 .events-showcase {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 1rem 1.25rem 4rem;
+  padding: 1rem 1.25rem 5rem;
 }
 .events-showcase-header {
   display: flex;
@@ -721,13 +827,12 @@ main { flex: 1; }
 .events-showcase-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.75rem;
+  gap: 6px;
 }
 .event-photo {
   aspect-ratio: 1;
   background: var(--color-surface-alt);
-  border: 2px dashed var(--color-border);
-  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
   align-items: center;
