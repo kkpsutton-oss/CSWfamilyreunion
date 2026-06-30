@@ -8,6 +8,94 @@
    ────────────────────────────────────────────────────────────── */
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwX9vxIqzkIMM-KJOoWRoQtNVDTLv1F7i_6I8TZNG85UB4fxixd0uLyedv1mqeX6z09/exec';
 
+/* ── Page fade-in ── */
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('loaded');
+});
+
+/* ── Scroll-reveal (IntersectionObserver) ── */
+(function initReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  /* Targets to fade-in individually */
+  const revealSelectors = [
+    '.agenda-section h2',
+    '.countdown-section h2',
+    '.countdown-section > p',
+    '.events-showcase-header',
+    '.events-showcase-title',
+    '.where-info',
+    '.map-placeholder',
+    '.feature-banner-box',
+    '.form-wrap',
+    '.highlight-box',
+    '.page-hero',
+    '.split-hero-text',
+  ];
+
+  /* Targets whose direct children stagger in */
+  const staggerSelectors = [
+    '.agenda-grid',
+    '.countdown-wrap',
+    '.events-showcase-grid',
+    '.photo-grid-3',
+    '.quick-nav',
+    '.card-grid',
+    '.footer-grid',
+    '.where-section',
+  ];
+
+  document.querySelectorAll(revealSelectors.join(',')).forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+
+  document.querySelectorAll(staggerSelectors.join(',')).forEach(el => {
+    el.classList.add('reveal-stagger');
+    observer.observe(el);
+  });
+
+  /* Also reveal individual .card elements not already inside .card-grid */
+  document.querySelectorAll('.card').forEach(el => {
+    if (!el.closest('.card-grid')) {
+      el.classList.add('reveal');
+      observer.observe(el);
+    }
+  });
+})();
+
+/* ── Hero parallax ── */
+(function initParallax() {
+  const photo = document.querySelector('.split-hero-photo');
+  if (!photo || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        /* Photo moves at 25% scroll speed relative to the page — slower = depth illusion */
+        photo.style.transform = `translateY(${y * 0.25}px)`;
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  /* Reset on resize in case layout reflows */
+  window.addEventListener('resize', () => {
+    if (window.innerWidth <= 768) photo.style.transform = '';
+  });
+})();
+
 /* ── Navigation ── */
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -39,24 +127,28 @@ document.addEventListener('DOMContentLoaded', () => {
   if (countdownEl) {
     const target = new Date('July 14, 2027 00:00:00').getTime();
 
+    /* Animate a number span only when its value actually changes */
+    function setWithFlip(id, newText) {
+      const el = document.getElementById(id);
+      if (!el || el.textContent === newText) return;
+      el.textContent = newText;
+      el.classList.remove('flip-in');
+      void el.offsetWidth; /* reflow to restart the animation */
+      el.classList.add('flip-in');
+    }
+
     function updateCountdown() {
-      const now  = Date.now();
-      const diff = target - now;
+      const diff = target - Date.now();
 
       if (diff <= 0) {
-        countdownEl.innerHTML = '<p class="section-title text-center" style="color:var(--color-primary)">The Reunion is Here! 🎉</p>';
+        countdownEl.innerHTML = '<p class="section-title" style="color:var(--color-primary)">The Reunion is Here! 🎉</p>';
         return;
       }
 
-      const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-      document.getElementById('cd-days').textContent    = String(days).padStart(2, '0');
-      document.getElementById('cd-hours').textContent   = String(hours).padStart(2, '0');
-      document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
-      document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
+      setWithFlip('cd-days',    String(Math.floor(diff / 86400000)).padStart(2, '0'));
+      setWithFlip('cd-hours',   String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0'));
+      setWithFlip('cd-minutes', String(Math.floor((diff % 3600000)  / 60000)).padStart(2, '0'));
+      setWithFlip('cd-seconds', String(Math.floor((diff % 60000)    / 1000)).padStart(2, '0'));
     }
 
     updateCountdown();
