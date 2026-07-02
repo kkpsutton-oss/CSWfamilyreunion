@@ -35,70 +35,123 @@
 
   <main>
 
-    <!-- ── Split Hero ── -->
-    <section class="split-hero">
-      <div class="split-hero-text">
-        <span class="split-hero-eyebrow">Our Family</span>
-        <div>
-          <h1 class="hero-title">CSW Family<span class="accent">Reunion 2027</span></h1>
-          <p class="split-hero-sub">Stories, photos, and updates that keep the CSW crew connected. Join us July 14&ndash;18 in Atlanta, GA.</p>
+    <!-- ── Centered Hero ── -->
+    <section class="hero-centered">
+      <div class="hero-centered-inner reveal">
+        <span class="hero-eyebrow">Atlanta, GA &bull; July 14&ndash;18, 2027</span>
+        <h1 class="hero-title">
+          Gather Together,<span class="accent">Make Memories.</span>
+        </h1>
+        <p class="hero-sub">Stories, food, and celebrations that keep the CSW crew connected. Join us this summer for the 2027 family reunion.</p>
+        <div class="hero-actions">
+          <a href="family-info.html" class="btn btn-primary">RSVP Now</a>
+          <a href="events.html" class="hero-link">See Events</a>
         </div>
-        <a href="family-info.html" class="hero-link">RSVP</a>
       </div>
-      <div class="split-hero-photo">
+      <!-- Floating photo card — mimics UI card in reference -->
+      <div class="hero-photo-card reveal">
         <span class="photo-icon">📷</span>
-        Photo Placeholder<br>Family Reunion Memories
+        Photo Placeholder &mdash; Family Reunion Memories
       </div>
     </section>
 
     <!-- ── Countdown ── -->
     <section class="countdown-section">
-      <h2>Counting Down</h2>
-      <p>Mark your calendar &mdash; we can't wait to celebrate together.</p>
-      <div id="countdown" class="countdown-wrap">
-        <div class="countdown-unit">
+      <h2 class="reveal">Counting Down.</h2>
+      <p class="reveal">Mark your calendar &mdash; we can't wait to celebrate together.</p>
+      <div id="countdown" class="countdown-wrap bloom-container">
+        <div class="countdown-unit bloom-item">
           <span class="number" id="cd-days">--</span>
           <span class="label">Days</span>
         </div>
-        <div class="countdown-unit">
+        <div class="countdown-unit bloom-item">
           <span class="number" id="cd-hours">--</span>
           <span class="label">Hours</span>
         </div>
-        <div class="countdown-unit">
+        <div class="countdown-unit bloom-item">
           <span class="number" id="cd-minutes">--</span>
           <span class="label">Minutes</span>
         </div>
-        <div class="countdown-unit">
+        <div class="countdown-unit bloom-item">
           <span class="number" id="cd-seconds">--</span>
           <span class="label">Seconds</span>
         </div>
       </div>
     </section>
 
-    <!-- ── Our Agenda ── -->
-    <section class="agenda-section">
-      <h2 class="agenda-title">Our Agenda</h2>
-      <div class="agenda-grid">
-        <div class="agenda-item">
-          <h3>Welcome Dinner</h3>
-          <p>Kick off the weekend with a sit-down dinner, opening remarks, and family stories</p>
+    <!-- ── What to Expect — horizontal steps ── -->
+    <section class="steps-section">
+      <span class="steps-eyebrow reveal">The Weekend</span>
+      <h2 class="steps-title reveal">What to Expect.</h2>
+      <p class="steps-sub reveal">Three unforgettable days celebrating family, good food, and lasting memories.</p>
+
+      <div class="steps-row bloom-container">
+
+        <div class="step-item bloom-item">
+          <div class="step-icon bloom-sub">
+            <!-- Dinner / fork & knife icon -->
+            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+              <line x1="22" y1="12" x2="22" y2="36"/>
+              <path d="M16 12 Q16 28 22 36 Q28 28 28 12"/>
+              <line x1="22" y1="36" x2="22" y2="68"/>
+              <line x1="52" y1="12" x2="52" y2="68"/>
+              <path d="M46 12 Q46 22 52 28 Q58 22 58 12 L58 28 Q58 36 52 36"/>
+            </svg>
+          </div>
+          <h3 class="step-name bloom-sub">Welcome Dinner</h3>
+          <p class="step-date bloom-sub">Friday, July 14</p>
+          <p class="step-desc bloom-sub">Kick off the reunion with a sit-down dinner, opening remarks, and family stories.</p>
         </div>
-        <div class="agenda-item">
-          <h3>Cookout &amp; Games</h3>
-          <p>Burgers, yard games, a photo booth, and friendly family team competitions</p>
+
+        <div class="step-connector"></div>
+
+        <div class="step-item bloom-item">
+          <div class="step-icon bloom-sub">
+            <!-- Cookout / grill icon -->
+            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+              <rect x="18" y="32" width="44" height="6" rx="3"/>
+              <path d="M26 38 L30 62"/>
+              <path d="M54 38 L50 62"/>
+              <line x1="30" y1="62" x2="50" y2="62"/>
+              <line x1="40" y1="62" x2="40" y2="72"/>
+              <circle cx="32" cy="22" r="4"/>
+              <circle cx="48" cy="18" r="4"/>
+              <path d="M30 15 Q33 10 30 6"/>
+              <path d="M46 11 Q49 6 46 2"/>
+            </svg>
+          </div>
+          <h3 class="step-name bloom-sub">Cookout &amp; Games</h3>
+          <p class="step-date bloom-sub">Saturday, July 15</p>
+          <p class="step-desc bloom-sub">Burgers, yard games, a photo booth, and friendly family team competitions.</p>
         </div>
-        <div class="agenda-item">
-          <h3>Farewell Brunch</h3>
-          <p>One more meal together to share memories before we say goodbye</p>
+
+        <div class="step-connector"></div>
+
+        <div class="step-item bloom-item">
+          <div class="step-icon bloom-sub">
+            <!-- Brunch / coffee cup icon -->
+            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 30 L20 56 Q20 64 40 64 Q60 64 60 56 L60 30 Z"/>
+              <path d="M60 36 Q74 36 74 46 Q74 56 60 56"/>
+              <line x1="14" y1="66" x2="66" y2="66"/>
+              <path d="M32 20 Q35 14 32 10"/>
+              <path d="M40 22 Q43 16 40 12"/>
+              <path d="M48 20 Q51 14 48 10"/>
+            </svg>
+          </div>
+          <h3 class="step-name bloom-sub">Farewell Brunch</h3>
+          <p class="step-date bloom-sub">Sunday, July 16</p>
+          <p class="step-desc bloom-sub">A relaxed buffet brunch to share memories and say your goodbyes until next time.</p>
         </div>
+
       </div>
     </section>
 
     <!-- ── Family Moments Photo Grid ── -->
-    <div class="photo-grid-3">
-      <div class="photo-tile"><span class="photo-icon">📷</span>Photo Placeholder</div>
-      <div class="photo-tile"><span class="photo-icon">📷</span>Photo Placeholder</div>
-      <div class="photo-tile"><span class="photo-icon">📷</span>Photo Placeholder</div>
+    <div class="photo-grid-3 bloom-container">
+      <div class="photo-tile bloom-item"><span class="photo-icon">📷</span>Photo Placeholder</div>
+      <div class="photo-tile bloom-item"><span class="photo-icon">📷</span>Photo Placeholder</div>
+      <div class="photo-tile bloom-item"><span class="photo-icon">📷</span>Photo Placeholder</div>
     </div>
 
     <!-- ── When + Where ── -->
@@ -123,21 +176,21 @@
         <h2 class="events-showcase-title">Events</h2>
         <a href="events.html" class="hero-link">Sign Up</a>
       </div>
-      <div class="events-showcase-grid">
-        <div>
-          <div class="event-photo"><span class="photo-icon">🍽️</span>Photo Placeholder</div>
-          <h4>Welcome Dinner</h4>
-          <p>Friday, July 14 &bull; 6:00&ndash;9:00 PM &bull; Venue Dining Hall</p>
+      <div class="events-showcase-grid bloom-container">
+        <div class="bloom-item">
+          <div class="event-photo bloom-sub"><span class="photo-icon">🍽️</span>Photo Placeholder</div>
+          <h4 class="bloom-sub">Welcome Dinner</h4>
+          <p class="bloom-sub">Friday, July 14 &bull; 6:00&ndash;9:00 PM &bull; Venue Dining Hall</p>
         </div>
-        <div>
-          <div class="event-photo"><span class="photo-icon">🍔</span>Photo Placeholder</div>
-          <h4>Cookout &amp; Games</h4>
-          <p>Saturday, July 15 &bull; 11:00 AM&ndash;6:00 PM &bull; Outdoor Pavilion</p>
+        <div class="bloom-item">
+          <div class="event-photo bloom-sub"><span class="photo-icon">🍔</span>Photo Placeholder</div>
+          <h4 class="bloom-sub">Cookout &amp; Games</h4>
+          <p class="bloom-sub">Saturday, July 15 &bull; 11:00 AM&ndash;6:00 PM &bull; Outdoor Pavilion</p>
         </div>
-        <div>
-          <div class="event-photo"><span class="photo-icon">🥐</span>Photo Placeholder</div>
-          <h4>Farewell Brunch</h4>
-          <p>Sunday, July 16 &bull; 10:00 AM&ndash;1:00 PM &bull; Venue Dining Hall</p>
+        <div class="bloom-item">
+          <div class="event-photo bloom-sub"><span class="photo-icon">🥐</span>Photo Placeholder</div>
+          <h4 class="bloom-sub">Farewell Brunch</h4>
+          <p class="bloom-sub">Sunday, July 16 &bull; 10:00 AM&ndash;1:00 PM &bull; Venue Dining Hall</p>
         </div>
       </div>
     </section>
@@ -174,24 +227,24 @@
       <hr class="divider">
       <p class="text-muted mb-2">Jump to any section to get started.</p>
 
-      <div class="quick-nav">
-        <a href="family-info.html" class="quick-nav-tile">
+      <div class="quick-nav bloom-container">
+        <a href="family-info.html" class="quick-nav-tile bloom-item">
           <span class="tile-icon">👨‍👩‍👧‍👦</span>
           Family Info
         </a>
-        <a href="travel.html" class="quick-nav-tile">
+        <a href="travel.html" class="quick-nav-tile bloom-item">
           <span class="tile-icon">✈️</span>
           Travel &amp; Lodging
         </a>
-        <a href="events.html" class="quick-nav-tile">
+        <a href="events.html" class="quick-nav-tile bloom-item">
           <span class="tile-icon">🎉</span>
           Events Sign-Up
         </a>
-        <a href="tshirts.html" class="quick-nav-tile">
+        <a href="tshirts.html" class="quick-nav-tile bloom-item">
           <span class="tile-icon">👕</span>
           T-Shirt Orders
         </a>
-        <a href="contact.html" class="quick-nav-tile">
+        <a href="contact.html" class="quick-nav-tile bloom-item">
           <span class="tile-icon">📬</span>
           Contact
         </a>
