@@ -13,86 +13,73 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.classList.add('loaded');
 });
 
-/* ── Scroll-reveal (IntersectionObserver) ── */
+/* ── Scroll-reveal for single elements ── */
 (function initReveal() {
-  const observer = new IntersectionObserver((entries) => {
+  const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        revealObs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  /* Targets to fade-in individually */
-  const revealSelectors = [
-    '.agenda-section h2',
-    '.countdown-section h2',
-    '.countdown-section > p',
-    '.events-showcase-header',
-    '.events-showcase-title',
-    '.where-info',
-    '.map-placeholder',
-    '.feature-banner-box',
-    '.form-wrap',
-    '.highlight-box',
-    '.page-hero',
-    '.split-hero-text',
+  /* Reveal any .reveal elements already in the DOM */
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  /* Auto-reveal inner-page elements not explicitly marked */
+  const autoReveal = [
+    '.form-wrap', '.highlight-box', '.events-showcase-header',
+    '.where-info', '.map-placeholder', '.feature-banner-box',
   ];
-
-  /* Targets whose direct children stagger in */
-  const staggerSelectors = [
-    '.agenda-grid',
-    '.countdown-wrap',
-    '.events-showcase-grid',
-    '.photo-grid-3',
-    '.quick-nav',
-    '.card-grid',
-    '.footer-grid',
-    '.where-section',
-  ];
-
-  document.querySelectorAll(revealSelectors.join(',')).forEach(el => {
-    el.classList.add('reveal');
-    observer.observe(el);
-  });
-
-  document.querySelectorAll(staggerSelectors.join(',')).forEach(el => {
-    el.classList.add('reveal-stagger');
-    observer.observe(el);
-  });
-
-  /* Also reveal individual .card elements not already inside .card-grid */
-  document.querySelectorAll('.card').forEach(el => {
-    if (!el.closest('.card-grid')) {
+  document.querySelectorAll(autoReveal.join(',')).forEach(el => {
+    if (!el.classList.contains('reveal')) {
       el.classList.add('reveal');
-      observer.observe(el);
+      revealObs.observe(el);
+    }
+  });
+
+  /* Reveal individual .card elements on inner pages */
+  document.querySelectorAll('.card').forEach(el => {
+    if (!el.classList.contains('reveal')) {
+      el.classList.add('reveal');
+      revealObs.observe(el);
     }
   });
 })();
 
-/* ── Hero parallax ── */
+/* ── Bloom observer — triggers .bloom-container children in sequence ── */
+(function initBloom() {
+  const bloomObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('bloomed');
+        bloomObs.unobserve(entry.target); /* fire once only */
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.bloom-container').forEach(el => bloomObs.observe(el));
+})();
+
+/* ── Parallax on hero photo card ── */
 (function initParallax() {
-  const photo = document.querySelector('.split-hero-photo');
-  if (!photo || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const card = document.querySelector('.hero-photo-card');
+  if (!card || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   let ticking = false;
-  function onScroll() {
+  window.addEventListener('scroll', () => {
     if (!ticking) {
       requestAnimationFrame(() => {
-        const y = window.scrollY;
-        /* Photo moves at 25% scroll speed relative to the page — slower = depth illusion */
-        photo.style.transform = `translateY(${y * 0.25}px)`;
+        card.style.transform = `translateY(${window.scrollY * 0.18}px)`;
         ticking = false;
       });
       ticking = true;
     }
-  }
+  }, { passive: true });
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  /* Reset on resize in case layout reflows */
   window.addEventListener('resize', () => {
-    if (window.innerWidth <= 768) photo.style.transform = '';
+    if (window.innerWidth <= 768) card.style.transform = '';
   });
 })();
 
